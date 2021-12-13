@@ -9,7 +9,7 @@ namespace McrDigital.Bootcamp1.Checkout.BowlingGameFolder
         public int FirstBowl { get; set; }
         public int? SecondBowl { get; set; }
         public int Total { get; set; }
-        public bool Strike { get; set; }
+        public bool IsStrike { get; set; }
 
         public Frame(int firstBowl, int secondBowl)
         {
@@ -22,7 +22,7 @@ namespace McrDigital.Bootcamp1.Checkout.BowlingGameFolder
         {
             FirstBowl = firstBowl;
             Total = firstBowl;
-            Strike = true;
+            IsStrike = true;
         }
     }
 }

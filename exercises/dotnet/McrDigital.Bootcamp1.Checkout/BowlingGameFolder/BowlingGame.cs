@@ -17,24 +17,31 @@ namespace McrDigital.Bootcamp1.Checkout.BowlingGameFolder
                 var currentFrame = frames[frameIndex];
                 score += currentFrame.Total;
 
-                if (currentFrame.Total == 10 && !currentFrame.Strike)
+                if (currentFrame.Total == 10 && !currentFrame.IsStrike)
                 {
                     score += frames[frameIndex + 1].FirstBowl;
                 }
 
-                if (currentFrame.Strike)
+                if (currentFrame.IsStrike)
                 {
-                    score += frames[frameIndex + 1].FirstBowl;
-
-                    if (frames[frameIndex + 1].Strike)
-                    {
-                        score += frames[frameIndex + 2].FirstBowl;
-                    }
-                    else
-                    {
-                        score += frames[frameIndex + 1].SecondBowl.Value;
-                    }
+                    score = Strike(frames, score, frameIndex);
                 }
+            }
+
+            return score;
+        }
+
+        private static int Strike(Frame[] frames, int score, int frameIndex)
+        {
+            score += frames[frameIndex + 1].FirstBowl;
+
+            if (frames[frameIndex + 1].IsStrike)
+            {
+                score += frames[frameIndex + 2].FirstBowl;
+            }
+            else
+            {
+                score += frames[frameIndex + 1].SecondBowl.Value;
             }
 
             return score;

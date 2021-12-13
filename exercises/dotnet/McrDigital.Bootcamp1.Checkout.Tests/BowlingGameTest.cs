@@ -81,7 +81,7 @@ namespace McrDigital.Bootcamp1.Checkout.Tests
         {
             var strike = new Frame(10);
 
-            Assert.Equal(true, strike.Strike);
+            Assert.Equal(true, strike.IsStrike);
         }
 
         [Fact]
@@ -128,6 +128,54 @@ namespace McrDigital.Bootcamp1.Checkout.Tests
             var result = _game.Score(bowls);
 
             Assert.Equal(60, result);
+        }
+
+        [Fact]
+        public void All_strikes()
+        {
+            var bowls = new[]
+            {
+                new Frame(10),
+                new Frame(10),
+                new Frame(10),
+                new Frame(10),
+                new Frame(10),
+                new Frame(10),
+                new Frame(10),
+                new Frame(10),
+                new Frame(10),
+                new Frame(10),
+                new Frame(10),
+                new Frame(10),
+                new Frame(10),
+            };
+
+            var result = _game.Score(bowls);
+
+            Assert.Equal(300, result);
+        }
+
+        [Fact]
+        public void All_spares()
+        {
+            var bowls = new[]
+            {
+                new Frame(5, 5),
+                new Frame(5, 5),
+                new Frame(5, 5),
+                new Frame(5, 5),
+                new Frame(5, 5),
+                new Frame(5, 5),
+                new Frame(5, 5),
+                new Frame(5, 5),
+                new Frame(5, 5),
+                new Frame(5, 5),
+                new Frame(5),
+            };
+
+            var result = _game.Score(bowls);
+
+            Assert.Equal(150, result);
         }
     }
 }

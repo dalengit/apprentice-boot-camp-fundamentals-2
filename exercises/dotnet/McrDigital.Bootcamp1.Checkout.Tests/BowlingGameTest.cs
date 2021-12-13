@@ -85,6 +85,14 @@ namespace McrDigital.Bootcamp1.Checkout.Tests
         }
 
         [Fact]
+        public void Single_bowl_is_not_a_strike()
+        {
+            var notStrike = new Frame(5);
+
+            Assert.Equal(false, notStrike.IsStrike);
+        }
+
+        [Fact]
         public void Score_accounts_for_strike()
         {
             var bowls = new[]

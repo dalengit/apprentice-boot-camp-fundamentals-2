@@ -22,7 +22,7 @@ namespace McrDigital.Bootcamp1.Checkout.BowlingGameFolder
         {
             FirstBowl = firstBowl;
             Total = firstBowl;
-            IsStrike = true;
+            IsStrike = firstBowl == 10;
         }
     }
 }

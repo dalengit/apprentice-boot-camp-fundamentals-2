@@ -19,7 +19,8 @@ namespace McrDigital.Bootcamp1.Checkout.BowlingGameFolder
 
                 if (currentFrame.Total == 10 && !currentFrame.IsStrike)
                 {
-                    score += frames[frameIndex + 1].FirstBowl;
+                    var nextFrame = frames[frameIndex + 1];
+                    score += nextFrame.FirstBowl;
                 }
 
                 if (currentFrame.IsStrike)
@@ -33,15 +34,17 @@ namespace McrDigital.Bootcamp1.Checkout.BowlingGameFolder
 
         private static int Strike(Frame[] frames, int score, int frameIndex)
         {
-            score += frames[frameIndex + 1].FirstBowl;
+            var nextFrame = frames[frameIndex + 1];
 
-            if (frames[frameIndex + 1].IsStrike)
+            score += nextFrame.FirstBowl;
+
+            if (nextFrame.IsStrike)
             {
                 score += frames[frameIndex + 2].FirstBowl;
             }
             else
             {
-                score += frames[frameIndex + 1].SecondBowl.Value;
+                score += nextFrame.SecondBowl.Value;
             }
 
             return score;

@@ -8,9 +8,22 @@ namespace McrDigital.Bootcamp1.Checkout.BowlingGameFolder
 {
     public class BowlingGame
     {
-        public int Score(Frame[] bowls)
+        public int Score(Frame[] frames)
         {
-            return bowls.Sum(x => x.FirstBowl + x.SecondBowl);
+            var score = 0;
+
+            for (int frameIndex = 0; frameIndex < 10; frameIndex++)
+            {
+                var currentFrame = frames[frameIndex];
+                score += currentFrame.FirstBowl + currentFrame.SecondBowl;
+
+                if (currentFrame.FirstBowl + currentFrame.SecondBowl == 10)
+                {
+                    score += frames[frameIndex + 1].FirstBowl;
+                }
+            }
+
+            return score;
         }
     }
 }

@@ -53,7 +53,7 @@ namespace McrDigital.Bootcamp1.Checkout.Tests
             Assert.Equal(20, result);
         }
 
-        [Fact (Skip = "Unused test")]
+        [Fact]
         public void Score_accounts_for_spare()
         {
             var bowls = new []

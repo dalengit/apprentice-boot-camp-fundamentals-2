@@ -5,9 +5,7 @@
   &lt;/TestAncestor&gt;&#xD;
 &lt;/SessionState&gt;</s:String>
 	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=191ce0be_002D865a_002D45a3_002D8d53_002Dab5485c284b3/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="Bowl_returns_zero #3" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
-  &lt;TestAncestor&gt;&#xD;
-    &lt;TestId&gt;xUnit::DD59B29E-94BA-4146-9252-58E853491353::.NETCoreApp,Version=v3.1::McrDigital.Bootcamp1.Checkout.Tests.BowlingGameTests&lt;/TestId&gt;&#xD;
-  &lt;/TestAncestor&gt;&#xD;
+  &lt;Solution /&gt;&#xD;
 &lt;/SessionState&gt;</s:String>
 	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=6c199c37_002D724c_002D45cc_002Db28c_002D0ea40b260017/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="Bowl_returns_zero" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
   &lt;TestAncestor&gt;&#xD;

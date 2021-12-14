@@ -23,17 +23,20 @@ namespace apprentice_bootcamp_fundamentals_2
         private string FizzBuzzValue(int currentNumber)
         {
             const int three = 0b11;
+
             _countsUpToThree++;
             _countsDownFromFive--;
 
-            var result = NumberAsString(currentNumber, three);
+            var isMultipleOfThree = _countsUpToThree == three;
+            var isMultipleOfFive = _countsDownFromFive == 0;
+            var result = NumberAsString(currentNumber, isMultipleOfThree, isMultipleOfFive);
 
-            if (_countsUpToThree == three)
+            if (isMultipleOfThree)
             {
                 result += Fizz();
             }
 
-            if (_countsDownFromFive == 0)
+            if (isMultipleOfFive)
             {
                 result += Buzz();
             }
@@ -41,9 +44,9 @@ namespace apprentice_bootcamp_fundamentals_2
             return result;
         }
 
-        private string NumberAsString(int currentNumber, int three)
+        private string NumberAsString(int currentNumber, bool isMultipleOfThree, bool isMultipleOfFive)
         {
-           return _countsUpToThree == three || _countsDownFromFive == 0 ? "" : (currentNumber + 1).ToString();
+           return isMultipleOfThree ||  isMultipleOfFive ? "" : (currentNumber + 1).ToString();
         }
 
         private string Buzz()

@@ -1,46 +1,73 @@
-namespace McrDigital.Bootcamp1.Checkout {
-  using System;
+using System;
 
-  public class Receipt {
+namespace McrDigital.Bootcamp1.Checkout {
+    public class Receipt {
     private string _text = String.Empty;
     private int _total;
     private int _numberOfA;
     private int _numberOfB;
 
     public string Text {
-      get => $"{this._text}Total: {this._total}";
+      get => $"{_text}Total: {_total}";
     }
 
-    public void ScannedA() {
-      this._text = $"{this._text}A: 50";
-      this._total += 50;
-      this._numberOfA++;
-      if (this._numberOfA % 5 == 0) {
-        this._text = $"{this._text} - 30 (5 for 220)";
-        this._total -= 30;
-      }
-      this._text = $"{this._text}\n";
-    }
+        public void ScannedA() 
+        {
+            var quantity = 5; 
+            _text = $"{_text}A: 50";
+          _total += 50;
+          _numberOfA++;
 
-    public void ScannedB() {
-      this._text = $"{this._text}B: 30";
-      this._total += 30;
-      this._numberOfB++;
-      if (this._numberOfB % 2 == 0) {
-        this._text = $"{this._text} - 15 (2 for 45)";
-        this._total -= 15;
-      }
-      this._text = $"{this._text}\n";
-    }
+          if (_numberOfA % quantity == 0)
+          {
+              var cost = 220;
+              var discount = 30;
+              PrintOffer(discount, quantity, cost);
+              _total -= 30;
+          }
 
-    public void ScannedC() {
-      this._text = $"{this._text}C: 20\n";
-      this._total += 20;
-    }
+          NewLine();
+        }
 
-    public void ScannedD() {
-      this._text = $"{this._text}D: 15\n";
-      this._total += 15;
+        public void ScannedB() 
+        { 
+          var quantity = 2; 
+          _text = $"{_text}B: 30";
+          _total += 30;
+          _numberOfB++;
+
+          if (_numberOfB % 2 == 0)
+          {
+              var cost = 45;
+              var discount = 15;
+
+              PrintOffer(discount, quantity, cost);
+              _total -= 15;
+          }
+          
+          NewLine();
+        }
+
+        public void ScannedC() 
+        {
+          _text = $"{_text}C: 20\n";
+          _total += 20;
+        }
+
+        public void ScannedD() 
+        {
+          _text = $"{_text}D: 15\n";
+          _total += 15;
+        }
+
+        private void PrintOffer(int discount, int quantity, int cost)
+        {
+            _text = $"{_text} - {discount} ({quantity} for {cost})";
+        }
+
+        private void NewLine()
+        {
+            _text = $"{_text}\n";
+        }
     }
-  }
 }
